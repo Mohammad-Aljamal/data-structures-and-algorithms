@@ -3,9 +3,9 @@
 ## Reverse the array
 
 
-### You can see the TEST result of the code challenge here : [Replit Code LINK](./linked-list/index.js)
+### You can see the TEST result of the code challenge here : [LL Code LINK](./linked-list/index.js)
 
-### [ pull request code ](https://github.com/Mohammad-Aljamal/data-structures-and-algorithms/pull/3)
+### [ pull request code ](https://github.com/Mohammad-Aljamal/data-structures-and-algorithms/pull/4)
 
 
 ![](./assets/Class5(linkedList).png)
