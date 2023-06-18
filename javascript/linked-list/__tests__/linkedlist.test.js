@@ -4,12 +4,12 @@
 const LinkedList = require("../lib/LinkedList");
 
 describe("Linked List", () => {
-  it("create a linkedlist ", () => {
-    let list = new LinkedList();
+  test("create a linkedlist ", async () => {
+    let list = await new LinkedList();
     expect(list.head).toBeNull();
   });
-  it("append to linkedlist", () => {
-    let list = new LinkedList();
+  test("append to linkedlist", async () => {
+    let list = await new LinkedList();
     list.append("one");
     expect(list.head.value).toEqual("one");
     list.append("two");
@@ -18,3 +18,7 @@ describe("Linked List", () => {
     // expect(list.head.value).toEqual('one');
   });
 });
+
+// afterAll (()=> {
+//   process.exit();
+// })
