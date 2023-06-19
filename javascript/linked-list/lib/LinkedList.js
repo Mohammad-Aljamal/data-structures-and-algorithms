@@ -5,7 +5,7 @@ class LinkedList {
   constructor() {
     this.head = null;
     this.tail = null;
-    // this.size = 0;
+    this.size = 0;
   }
 
   append(value) {
@@ -29,7 +29,6 @@ class LinkedList {
   }
 
   includes(value) {
-   
     let currentNode = this.head;
     while (currentNode) {
       if (currentNode.value == value) {
@@ -41,17 +40,70 @@ class LinkedList {
   }
 
   toString() {
-    
-    let currentNodeString = '';
+    let currentNodeString = "";
     let currentNode = this.head;
     while (currentNode) {
-        currentNodeString += `{ ${currentNode.value} } -> `
-        currentNode.next;
+      currentNodeString += `{ ${currentNode.value} } -> `;
+      currentNode.next;
     }
 
     currentNodeString += `NULL`;
     return currentNodeString;
+  }
 
+  insertAfter(value, newValue) {
+    if (!this.head) {
+      return null;
+    }
+    let previous;
+    let count = 0;
+    let current = this.head;
+    while (current) {
+      previous = current;
+      count++;
+      if (current.value == value) {
+        let newNode = new Node(newValue);
+        newNode.next = current.next;
+        if (this.size == count) {
+          newNode.next = null;
+          this.tail = newNode;
+        }
+        previous.next = newNode;
+        this.size++;
+        return this;
+      }
+      current = current.next;
+    }
+    return;
+  }
+
+  insertBefore(value, newValue) {
+    if (!this.head) {
+      return null;
+    }
+
+    if (this.head.value == value) {
+      if (this.size == 1) {
+        this.tail = this.head;
+      }
+      this.head = new Node(newValue, this.head);
+      this.size++;
+      return this;
+    }
+
+    let current = this.head;
+    let next;
+
+    while (current.next) {
+      if (current.next.value == value) {
+        let newNode = new Node(newValue, current.next);
+        current.next = newNode;
+        this.size++;
+        return this;
+      }
+      current = current.next;
+    }
+    return this;
   }
 }
 

@@ -13,9 +13,11 @@ describe("Linked List", () => {
     list.append("one");
     expect(list.head.value).toEqual("one");
     list.append("two");
-    expect(list.head.value).toEqual("one");
-    // list.includes('one');
-    // expect(list.head.value).toEqual('one');
+    expect(list.tail.value).toEqual("two");
+    list.insertBefore('one','zero');
+    expect(list.head.value).toEqual('zero');
+    // list.insertAfter('two','three');
+    // expect(list.tail.value).toEqual("three");
   });
 });
 
