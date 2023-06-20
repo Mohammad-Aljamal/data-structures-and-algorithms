@@ -3,7 +3,7 @@
 ## Linked List kthFromEnd (return the value od the index from the tail)
 
 
-### You can see the TEST result of the code challenge here : [LL Code LINK](./linked-list/index.js)
+### You can see the TEST result of the code challenge here: [LL Code LINK](./linked-list/index.js)
 
 ### [ pull request code ](https://github.com/Mohammad-Aljamal/data-structures-and-algorithms/pull/7)
 
