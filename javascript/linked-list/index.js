@@ -15,7 +15,7 @@ ll.insertBefore(2,1);
 // ll.insertBefore(2,3);
 // ll.insertBefore(2,6);
 
-
+ll.kthFromEnd(0);
 
 console.log(ll);
 

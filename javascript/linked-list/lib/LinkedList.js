@@ -105,6 +105,24 @@ class LinkedList {
     }
     return this;
   }
+
+  kthFromEnd(endIndex) {
+    if (endIndex == 0) {
+      return this.tail.value;
+    }
+
+    let index = this.size - endIndex;
+    let current = this.head;
+    let count = 0;
+    while (current) {
+      count++;
+      if (index == count) {
+        return current.value;
+      }
+      current = current.next;
+    }
+    return "Exception";
+  }
 }
 
 module.exports = LinkedList;
