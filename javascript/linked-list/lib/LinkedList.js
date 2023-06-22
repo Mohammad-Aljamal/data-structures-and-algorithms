@@ -107,10 +107,7 @@ class LinkedList {
   }
 
   kthFromEnd(endIndex) {
-    if (endIndex == 0) {
-      return this.tail.value;
-    }
-
+    
     let index = this.size - endIndex;
     let current = this.head;
     let count = 0;
