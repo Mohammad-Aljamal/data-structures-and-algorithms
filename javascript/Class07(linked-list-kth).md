@@ -5,7 +5,7 @@
 
 ### You can see the TEST result of the code challenge here: [LL Code LINK](./linked-list/index.js)
 
-### [ pull request code ](https://github.com/Mohammad-Aljamal/data-structures-and-algorithms/pull/8)
+### [ pull request code ](https://github.com/Mohammad-Aljamal/data-structures-and-algorithms/pull/10)
 
 
 ![](./assets/Class07(linked-list-kth).png)
