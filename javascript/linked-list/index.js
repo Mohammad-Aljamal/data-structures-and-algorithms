@@ -16,16 +16,21 @@ let ll2 = new LinkedList();
 // ll.insertBefore(2,3);
 // ll.insertBefore(2,6);
 
-// ll.append(1);
-// ll.append(2);
-// console.log(ll.kthFromEnd(0));  // =2
-// console.log(ll.kthFromEnd(1));  // =1
-// console.log(ll.kthFromEnd(-1)); // =Exception
-// console.log(ll.kthFromEnd(2));  // =Exception
+console.log("")
+console.log("")
+console.log("<-----------this is kthFromEnd test--------------->")
+ll.append(1);
+ll.append(2);
+console.log(ll.kthFromEnd(0));  // =2
+console.log(ll.kthFromEnd(1));  // =1
+console.log(ll.kthFromEnd(-1)); // =Exception
+console.log(ll.kthFromEnd(2));  // =Exception
 
-
-ll.append(1);    //LL1
-ll.append(2);    //LL1
+console.log("")
+console.log("")
+console.log("<-----------this is zipLists test--------------->")
+// ll.append(1);    //LL1
+// ll.append(2);    //LL1
 ll2.append(3);   //LL2
 ll2.append(4);   //LL2
 ll2.append(5);   //LL2
