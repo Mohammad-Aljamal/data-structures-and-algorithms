@@ -43,8 +43,9 @@ class LinkedList {
     let currentNodeString = "";
     let currentNode = this.head;
     while (currentNode) {
+      console.log(currentNode.value);
       currentNodeString += `{ ${currentNode.value} } -> `;
-      currentNode.next;
+      currentNode = currentNode.next;
     }
 
     currentNodeString += `NULL`;
@@ -107,7 +108,6 @@ class LinkedList {
   }
 
   kthFromEnd(endIndex) {
-    
     let index = this.size - endIndex;
     let current = this.head;
     let count = 0;
@@ -120,6 +120,40 @@ class LinkedList {
     }
     return "Exception";
   }
+
+  ////////////////////////////////////////////////////////////
+  headOfList(list) {
+    return this.head;
+  }
+
+  zipLists(list1, list2) {
+    if (!list1 && !list2) {
+      return null;
+    }
+    if (!list1) {
+      return list2.toString();
+    }
+    if (!list2) {
+      return list1.toString();
+    }
+
+    let current1 = list1.headOfList(list1);
+    let current2 = list2.headOfList(list2);
+    let zipList = new LinkedList();
+
+    while (current1 || current2) {
+      if (current1) {
+        zipList.append(current1.value);
+        current1 = current1.next;
+      }
+      if (current2) {
+        zipList.append(current2.value);
+        current2 = current2.next;
+      }
+    }
+    return zipList.toString();
+  }
+  ////////////////////////////////////////////////////////////
 }
 
 module.exports = LinkedList;
