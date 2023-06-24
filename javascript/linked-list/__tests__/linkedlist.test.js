@@ -28,8 +28,8 @@ describe("includes", () => {
     list.append("one");
     let result = list.includes("one");
     expect(result).toEqual(true);
-    // let result2 = list.includes("two");
-    // expect(result2).toEqual(false);
+    let result2 = list.includes("two");
+    expect(result2).toEqual(false);
   });
 });
 
@@ -120,5 +120,4 @@ describe("zipList", () => {
     let result = list1.zipLists(list1, list2);
     expect(result).toEqual("NULL");
   });
-
 });
