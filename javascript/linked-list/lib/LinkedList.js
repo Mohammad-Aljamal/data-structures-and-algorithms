@@ -34,7 +34,7 @@ class LinkedList {
       if (currentNode.value == value) {
         return true;
       }
-      currentNode.next;
+      currentNode = currentNode.next;
     }
     return false;
   }
