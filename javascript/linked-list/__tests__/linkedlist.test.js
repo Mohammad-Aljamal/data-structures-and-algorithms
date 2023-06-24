@@ -81,7 +81,7 @@ describe("kthFromEnd", () => {
 });
 
 describe("zipList", () => {
-  test("combine two LL's equal to gether in size", async () => {
+  test("combine two LL's equal to each other in size", async () => {
     let list1 = await new LinkedList();
     let list2 = await new LinkedList();
     list1.append(1);
