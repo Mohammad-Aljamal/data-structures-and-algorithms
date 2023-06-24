@@ -43,7 +43,6 @@ class LinkedList {
     let currentNodeString = "";
     let currentNode = this.head;
     while (currentNode) {
-      console.log(currentNode.value);
       currentNodeString += `{ ${currentNode.value} } -> `;
       currentNode = currentNode.next;
     }
