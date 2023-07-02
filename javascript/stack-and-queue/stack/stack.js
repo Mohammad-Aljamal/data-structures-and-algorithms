@@ -28,7 +28,7 @@ class Stack {
     pop(){
         if(this.isEmpty() === true){
             console.log('empty stack');
-            return false;
+            return 'empty stack';
         }
         const temp = this.top;
         this.top = temp.next;
