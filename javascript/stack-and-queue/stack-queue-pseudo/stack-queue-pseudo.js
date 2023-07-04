@@ -2,60 +2,87 @@
 
 const Node = require('../Node');
 
-class Queue {
-    constructor (){
-        this.front = null;
-        this.rear = null;
+class Stack {
+    constructor(){
+        this.top = null;
         this.length = 0;
     }
 
     isEmpty(){
-        if(this.front === null){
+        if(this.top === null){
             return true;
         }else{
             return false;
         }
     }
 
-    enqueue(value){
+    push(value){
         const newNode = new Node (value);
 
-        if(this.isEmpty()){
-            this.front = newNode;
-            this.rear = newNode;
-            this.length++;
-            return newNode;
-        }else{
-            newNode.next = this.front;
-            this.front = newNode;
-            this.length++;
-            return newNode;
-        }
+        newNode.next = this.top;
+        this.top = newNode;
+        this.length++;
+        return this.top;
     }
 
-    dequeue(){
-        if(this.isEmpty()){
-            console.log('the queue is empty')
-            return 'the queue is empty';
-        }else{
-            const temp = this.rear;
-            this.rear = temp.next;
-            temp.next = null;
-            this.length--;
-            return temp.value;
-            // const current 
-            // while()
+    pop(){
+        if(this.isEmpty() === true){
+            console.log('empty stack');
+            return 'empty stack';
         }
+        const temp = this.top;
+        this.top = temp.next;
+        temp.next = null;
+        this.length--;
+        return temp;
     }
 
     peek(){
         if(this.isEmpty() === true){
-            console.log('the queue is empty')
-            return 'the queue is empty';
-        }else{
-            return this.front.value;
+            console.log('empty stack');
+            return 'empty stack';
         }
+        return this.top.value;
     }
 }
 
-module.exports = Queue;
+
+class pseudoQueue {
+    constructor(){
+        this.stack1 = new Stack();
+        this.stack2 = new Stack();
+    }
+
+    enqueue(value){
+        this.stack1.push(value)
+    }
+
+    dequeue(){
+        if(this.stack2.length === 0){
+          let count = 0;
+            // while(this.stack1.next){
+               while(this.stack1.length >= count){
+
+              count++;
+                this.stack1.pop();
+            }
+        }
+
+      let result = this.stack2.push(this.stack1.pop());
+        return  result.value;
+
+    }
+}
+
+
+let list = new pseudoQueue();
+
+list.enqueue(20);
+list.enqueue(15);
+list.enqueue(10);
+list.enqueue(5);
+console.log(list);
+
+console.log('-----------------------------------')
+
+console.log(list.dequeue());
