@@ -59,8 +59,12 @@ class Queue {
                 while(current){
                     if(current.species == species){
                         let newNext = current.next;
+                        if(current == this.rear){
+                            this.rear = previos;
+                        }
                         current.next = null;
                         previos.next = newNext;
+                        
                         this.length--;
                         return current;
                     }
@@ -77,18 +81,25 @@ class Queue {
 }
 
 
+
 const animal = new Queue ();
 
-animal.enqueue('dog', 'dd');
+animal.enqueue('ss', 'dd');
 animal.enqueue('cat', 'cc');
 animal.enqueue('ccc', 'resultNull');
+animal.enqueue('dog', 'dd');
+
 
 console.log(animal);
 
 console.log('--------------------------------------------');
 
-console.log(animal.dequeue('cat'));
+console.log(animal.dequeue('dog'));
 
 console.log('--------------------------------------------');
 
 console.log(animal);
+
+
+
+module.exports = Queue;
