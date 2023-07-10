@@ -1,4 +1,4 @@
-# Class 12  stack-and-queue
+# Class 13  stack-and-queue
 
 ## stack-queue-brackets
 
