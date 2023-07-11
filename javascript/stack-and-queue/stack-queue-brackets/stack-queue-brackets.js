@@ -1,72 +1,58 @@
-'use strict';
+"use strict";
 
-class Node {
-    constructor (string) {
-        this.string = string;
-        this.next = null;
+class Stack {
+  constructor() {
+    this.items = [];
+  }
+  push(item) {
+    this.items.push(item);
+  }
+  pop() {
+    if (this.isEmpty()) {
+      return null;
     }
+    return this.items.pop();
+  }
+  isEmpty() {
+    return this.items.length === 0;
+  }
+  peek() {
+    if (this.isEmpty()) {
+      return null;
+    }
+    return this.items[this.items.length - 1];
+  }
+}
+function validateBracket(string) {
+  const stack = new Stack();
+  console.log(typeof stack);
+  const openingBrackets = ["(", "{", "["];
+  const closingBrackets = [")", "}", "]"];
+  const bracketPairs = {
+    ")": "(",
+    "}": "{",
+    "]": "[",
+  };
+  for (let i = 0; i < string.length; i++) {
+    const currentBracket = string[i];
+    if (openingBrackets.includes(currentBracket)) {
+      stack.push(currentBracket);
+    } else if (closingBrackets.includes(currentBracket)) {
+      if (stack.isEmpty()) {
+        return false;
+      }
+      const topBracket = stack.pop();
+      if (bracketPairs[currentBracket] !== topBracket) {
+        return false;
+      }
+    }
+  }
+  return stack.isEmpty();
 }
 
+console.log(validateBracket("()")); // true
+console.log(validateBracket("({[]})")); // true
+console.log(validateBracket("({)")); // false
+console.log(validateBracket("[()]{}{[()()]()}")); // true
+console.log(validateBracket("]")); // false
 
-class Queue {
-    constructor (){
-        this.front = null;
-        this.rear = null;
-        this.length = 0;
-    }
-
-    isEmpty(){
-        if(this.front === null){
-            return true;
-        }else{
-            return false;
-        }
-    }
-
-    enqueue(string){
-        const newNode = new Node (string);
-
-        if(this.isEmpty()){
-            this.front = newNode;
-            this.rear = newNode;
-            this.length++;
-            return newNode;
-        }else{
-            this.rear.next = newNode;
-            this.rear = newNode;
-            this.length++;
-            return newNode;
-        }
-    }
-
-    dequeue(){
-        if(this.isEmpty()){
-            console.log('the queue is empty')
-            return 'the queue is empty';
-        }else{
-            const temp = this.front;
-            this.front = temp.next;
-            temp.next = null;
-            this.length--;
-            return temp.value;
-        }
-    }
-
-    peek(){
-        if(this.isEmpty() === true){
-            console.log('the queue is empty')
-            return 'the queue is empty';
-        }else{
-            return this.front.value;
-        }
-    }
-}
-
-
-function validateBrackets (string){
-    
-}
-
-validateBrackets(newQueue);
-
-module.exports = Queue;
