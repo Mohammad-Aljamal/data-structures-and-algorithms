@@ -8,74 +8,92 @@ describe("Tree", () => {
     let newTree = await new BinarySearchTree();
     expect(newTree.root).toBeNull();
   });
-});
 
-describe("enqueue", () => {
-  test("PUSH a new node to the Queue", async () => {
-    let newQueue = await new Queue();
-    newQueue.enqueue("one");
-    expect(newQueue.front.value).toEqual("one");
-    expect(newQueue.rear.value).toEqual("one");
-
-    newQueue.enqueue("two");
-    expect(newQueue.front.value).toEqual("one");
-    expect(newQueue.rear.value).toEqual("two");
-
+  test("create a Tree with single node", async () => {
+    let newNode = new Node (1)
+    let newTree = await new BinarySearchTree(newNode);
+    expect(newTree.root).toEqual(newNode);
   });
 });
 
-// describe("isEmpty", () => {
-//   test("check if the Queue IS EMPTY when it is empty", async () => {
-//     let newQueue = await new Queue();
-//     let result = newQueue.isEmpty();
-//     expect(result).toEqual(true);
-//   });
 
-//   test("check if the Queue IS EMPTY when it is contain nodes", async () => {
-//     let newQueue = await new Queue();
-//     newQueue.enqueue("one");
-//     let result1 = newQueue.isEmpty();
-//     expect(result1).toEqual(false);
-//   });
-// });
+describe("add", () => {
+  test("add new nodes to the tree", async () => {
+    let newTree = await new BinarySearchTree();
+    newTree.add(5);
+    expect(newTree.root.value).toEqual(5);
+  });
 
-// describe("dequeue", () => {
-//   test("delete the front of the Queue if it is empty", async () => {
-//     let newQueue = await new Queue();
-//     let result = newQueue.dequeue();
-//     expect(result).toEqual('the queue is empty');
-//     expect(newQueue.front).toBeNull();
-//   });
+  test("add letf node to the root of the binary search tree", async () => {
+    let newTree = await new BinarySearchTree();
+    newTree.add(5);
+    newTree.add(3);
+    expect(newTree.root.value).toEqual(5);
+    expect(newTree.root.left.value).toEqual(3);
 
-//   test("dequeue the top of the Queue if it is contain nodes", async () => {
-//     let newQueue = await new Queue();
-//     newQueue.enqueue("one");
-//     newQueue.enqueue("two");
-//     newQueue.enqueue("three");
-//     expect(newQueue.rear.value).toEqual("three");
-//     expect(newQueue.front.value).toEqual("one");
-//     newQueue.dequeue();
-//     expect(newQueue.rear.value).toEqual("three");
-//     expect(newQueue.front.value).toEqual("two");
-//   });
-// });
+  });
+
+  test("add right node to the root of the binary search tree", async () => {
+    let newTree = await new BinarySearchTree();
+    newTree.add(5);
+    newTree.add(6);
+    expect(newTree.root.value).toEqual(5);
+    expect(newTree.root.right.value).toEqual(6);
+  });
+});
 
 
-// describe("PEEK", () => {
-//   test("git the value of the top node of Queue if it is empty", async () => {
-//     let newQueue = await new Queue();
-//     let result = newQueue.peek();
-//     expect(result).toEqual('the queue is empty');
-//     expect(newQueue.front).toBeNull();
-//   });
+describe("Depth First traverse", () => {
+  test("preOrder  inOrder  postOrder  add  contains", async () => {
+    let newTree = await new BinarySearchTree();
+    newTree.add(5);
+    newTree.add(6);
+    newTree.add(3);
+    newTree.add(2);
+    newTree.add(4);
+    expect(newTree.root.value).toEqual(5);
+    expect(newTree.preOrder()).toEqual([5,3,2,4,6]);
+  });
 
-//   test("git the value of the top node of Queue if it is contain nodes", async () => {
-//     let newQueue = await new Queue();
-//     newQueue.enqueue("one");
-//     newQueue.enqueue("two");
-//     newQueue.enqueue("three");
-//     let result = newQueue.peek();
-//     expect(newQueue.front.value).toEqual("one");
-//     expect(result).toEqual("one");
-//   });
-// });
+  test("inOrder", async () => {
+    let newTree = await new BinarySearchTree();
+    newTree.add(5);
+    newTree.add(6);
+    newTree.add(3);
+    newTree.add(2);
+    newTree.add(4);
+    expect(newTree.root.value).toEqual(5);
+    expect(newTree.inOrder()).toEqual([2,3,4,5,6]);
+  });
+
+  test("postOrder", async () => {
+    let newTree = await new BinarySearchTree();
+    newTree.add(5);
+    newTree.add(6);
+    newTree.add(3);
+    newTree.add(2);
+    newTree.add(4);
+    expect(newTree.root.value).toEqual(5);
+    expect(newTree.postOrder()).toEqual([2,4,3,6,5]);
+  });
+});
+
+
+describe("contains", () => {
+  test("check if the Tree IS contains a spacifc value", async () => {
+    let newTree = await new BinarySearchTree();
+    newTree.add(5);
+    newTree.add(6);
+    newTree.add(3);
+    newTree.add(2);
+    newTree.add(4);
+    let containValue = newTree.contains(5)
+    let containValue1 = newTree.contains(4)
+    let containValue2 = newTree.contains(0)
+    expect(containValue).toEqual(true);
+    expect(containValue1).toEqual(true);
+    expect(containValue2).toEqual(false);
+  });
+});
+
+
