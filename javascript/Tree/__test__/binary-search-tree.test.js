@@ -96,4 +96,18 @@ describe("contains", () => {
   });
 });
 
-
+describe("getMax", () => {
+  test("get the max value of the tree", async () => {
+    let newTree = await new BinarySearchTree();
+    expect(newTree.treeMax()).toEqual('the tree is empty');
+    newTree.add(5);
+    expect(newTree.treeMax()).toEqual(5);
+    newTree.add(6);
+    newTree.add(3);
+    expect(newTree.treeMax()).toEqual(6);
+    newTree.add(7);
+    newTree.add(2);
+    newTree.add(11);
+    expect(newTree.treeMax()).toEqual(11);
+  });
+})
