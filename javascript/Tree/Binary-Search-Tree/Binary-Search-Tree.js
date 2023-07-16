@@ -84,6 +84,13 @@ class BinarySearchTree  {
       return false;
     }
   }
+
+  treeMax () {
+    if(!this.root){
+      return 'the tree is empty';
+    }
+    return Math.max(...this.preOrder());
+  }
 }
 
 module.exports = BinarySearchTree;

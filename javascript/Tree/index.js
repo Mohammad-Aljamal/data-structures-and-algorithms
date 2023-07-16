@@ -29,3 +29,9 @@ console.log(tree.contains(9));
 console.log(tree.contains(0));
 
 
+console.log('------------------Get Max-------------------------');
+
+console.log(tree.treeMax());
+
+
+
