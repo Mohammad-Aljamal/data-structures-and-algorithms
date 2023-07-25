@@ -111,3 +111,18 @@ describe("getMax", () => {
     expect(newTree.treeMax()).toEqual(11);
   });
 })
+
+describe("FizzBizz", () => {
+  test("if value of node %3=0 Fizz if value of node %5=0 Bizz if both FizzBizz", async () => {
+    let newTree = await new BinarySearchTree();
+    let result = newTree.fizzBuzz(newTree);
+    expect(result).toEqual('the tree is empty');
+
+    newTree.add(9);
+    newTree.add(8);
+    newTree.add(5);
+    newTree.add(15);
+    newTree.fizzBuzz(newTree);
+    expect(newTree.preOrder()).toEqual(['Fizz','8','Bizz','FizzBizz']);
+  });
+})
