@@ -2,6 +2,7 @@
 
 const Node = require('../Node');
 
+
 class BinarySearchTree  {
   constructor(root = null) {
     this.root = root;
@@ -14,30 +15,6 @@ class BinarySearchTree  {
         result.push(node.value);
         if (node.left) traverse(node.left);
         if (node.right) traverse(node.right);
-    }
-
-    traverse (this.root);
-    return result;
-  }
-
-  inOrder() {
-    let result = [];
-    let traverse = (node) => {
-        if (node.left) traverse(node.left);
-        result.push(node.value);
-        if (node.right) traverse(node.right);
-    }
-
-    traverse (this.root);
-    return result;
-  }
-
-  postOrder() {
-    let result = [];
-    let traverse = (node) => {
-        if (node.left) traverse(node.left);
-        if (node.right) traverse(node.right);
-        result.push(node.value);
     }
 
     traverse (this.root);
@@ -76,22 +53,6 @@ class BinarySearchTree  {
     traverse(this.root);
   }
 
-  contains (value) {
-    let preOrder = this.preOrder();
-    if(preOrder.includes(value)){
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  treeMax () {
-    if(!this.root){
-      return 'the tree is empty';
-    }
-    return Math.max(...this.preOrder());
-  }
-
 
   fizzBuzz (tree) {
     if(!tree.root){
@@ -117,5 +78,25 @@ class BinarySearchTree  {
     return tree;
   }
 }
+
+
+const tree = new BinarySearchTree();
+
+
+console.log('------------------FizzBizz-------------------------');
+
+tree.add(9);
+tree.add(7);
+tree.add(6);
+tree.add(8);
+tree.add(10);
+tree.add(15);
+
+
+tree.fizzBuzz(tree);
+
+console.log(tree.preOrder());
+
+
 
 module.exports = BinarySearchTree;
