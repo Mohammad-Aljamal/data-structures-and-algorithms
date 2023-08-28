@@ -1,10 +1,10 @@
 # Class 30  
 
-## HahMap
+## HahMap repeated Word
 
 
 
-### You can see the code of the challenge here: [Hash Table](./hashtable/hashtable.js)
+### You can see the code of the challenge here: [Hash Table repeatedWord](./hashtable/hashtable.js)
 
 ### You can see the code Test of the challenge here: [Hashtable.TEST](./hashtable/__tests__/hashtable.test.js)
 

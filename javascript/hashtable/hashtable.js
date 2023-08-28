@@ -139,7 +139,7 @@ class Hashmap {
   ///////////////////////class 31///////////////////////////////
 
   repeatedWord(string) {
-    const words = string.toLowerCase().split(" "); // Split the string into words
+    const words = string.toLowerCase().split(/\W+/)
     const wordMap = new Hashmap(words.length);
 
     for (const word of words) {
