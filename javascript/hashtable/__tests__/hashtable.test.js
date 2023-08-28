@@ -77,3 +77,17 @@ describe("has", () => {
 //   });
 // });
 
+
+//////////////////////////////////challenge 31 repeatedWord ////////////////////////////////
+
+describe("repeatedWord", () => {
+  test(" finds the first word to occur more than once in a string", async () => {
+    let myHash = await new Hashmap();
+    const result = myHash.repeatedWord("Once upon a time, there was a brave princess who");
+    const result1 = myHash.repeatedWord("It was a queer, sultry summer, the summer they electrocuted the Rosenbergs, and I didn’t know what I was doing in New York");
+
+    expect(result).toEqual("a");
+    expect(result1).toEqual("summer");
+
+  });
+});
