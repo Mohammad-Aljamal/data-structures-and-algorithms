@@ -2,6 +2,7 @@
 
 const Node = require('../Node');
 const BinarySearchTree = require('../Binary-Search-Tree/Binary-Search-Tree');
+const tree_intersection = require('../treeIntersection/tree-intersection')
 
 describe("Tree", () => {
   test("create a Tree ", async () => {
@@ -109,5 +110,53 @@ describe("getMax", () => {
     newTree.add(2);
     newTree.add(11);
     expect(newTree.treeMax()).toEqual(11);
+  });
+})
+
+
+
+describe("tree_intersection", () => {
+  test("test the tree_intersection if one if the input is not a Tree", async () => {
+    let tree1 = await new BinarySearchTree();
+    tree1.add(5);
+    tree1.add(6);
+    tree1.add(3);
+    tree1.add(7);
+    tree1.add(2);
+    tree1.add(11);
+
+    expect(tree_intersection(tree1, 6)).toEqual("one of the inputs is not a tree or empty");
+  });
+
+  test("test the tree_intersection if one if the trees in empty", async () => {
+    let tree1 = await new BinarySearchTree();
+    let tree2 = await new BinarySearchTree();
+    tree1.add(5);
+    tree1.add(6);
+    tree1.add(3);
+    tree1.add(7);
+    tree1.add(2);
+    tree1.add(11);
+
+    expect(tree_intersection(tree1, tree2)).toEqual("one of the inputs is not a tree or empty");
+  });
+
+  test("test the tree_intersection if one if both of thim is Trees", async () => {
+    let tree1 = await new BinarySearchTree();
+    let tree2 = await new BinarySearchTree();
+    tree1.add(8);
+    tree1.add(6);
+    tree1.add(3);
+    tree1.add(7);
+    tree1.add(10);
+
+    
+    tree2.add(8);
+    tree2.add(6);
+    tree2.add(3);
+    tree2.add(1);
+    tree1.add(11);
+
+    expect(tree_intersection(tree1, tree2)).toEqual([8,6,3]);
   });
 })
