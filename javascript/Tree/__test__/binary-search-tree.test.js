@@ -2,6 +2,7 @@
 
 const Node = require('../Node');
 const BinarySearchTree = require('../Binary-Search-Tree/Binary-Search-Tree');
+const tree_intersection = require('../treeIntersection/tree-intersection')
 
 describe("Tree", () => {
   test("create a Tree ", async () => {
@@ -96,6 +97,21 @@ describe("contains", () => {
   });
 });
 
+describe("FizzBizz", () => {
+  test("if value of node %3=0 Fizz if value of node %5=0 Bizz if both FizzBizz", async () => {
+    let newTree = await new BinarySearchTree();
+    let result = newTree.fizzBuzz(newTree);
+    expect(result).toEqual('the tree is empty');
+
+    newTree.add(9);
+    newTree.add(8);
+    newTree.add(5);
+    newTree.add(15);
+    newTree.fizzBuzz(newTree);
+    expect(newTree.preOrder()).toEqual(['Fizz','8','Bizz','FizzBizz']);
+  });
+})
+
 describe("getMax", () => {
   test("get the max value of the tree", async () => {
     let newTree = await new BinarySearchTree();
@@ -112,17 +128,54 @@ describe("getMax", () => {
   });
 })
 
-describe("FizzBizz", () => {
-  test("if value of node %3=0 Fizz if value of node %5=0 Bizz if both FizzBizz", async () => {
-    let newTree = await new BinarySearchTree();
-    let result = newTree.fizzBuzz(newTree);
-    expect(result).toEqual('the tree is empty');
 
-    newTree.add(9);
-    newTree.add(8);
-    newTree.add(5);
-    newTree.add(15);
-    newTree.fizzBuzz(newTree);
-    expect(newTree.preOrder()).toEqual(['Fizz','8','Bizz','FizzBizz']);
+
+
+describe("tree_intersection", () => {
+  test("test the tree_intersection if one if the input is not a Tree", async () => {
+    let tree1 = await new BinarySearchTree();
+    tree1.add(5);
+    tree1.add(6);
+    tree1.add(3);
+    tree1.add(7);
+    tree1.add(2);
+    tree1.add(11);
+
+    expect(tree_intersection(tree1, 6)).toEqual("one of the inputs is not a tree or empty");
+  });
+
+  test("test the tree_intersection if one if the trees in empty", async () => {
+    let tree1 = await new BinarySearchTree();
+    let tree2 = await new BinarySearchTree();
+    tree1.add(5);
+    tree1.add(6);
+    tree1.add(3);
+    tree1.add(7);
+    tree1.add(2);
+    tree1.add(11);
+
+    expect(tree_intersection(tree1, tree2)).toEqual("one of the inputs is not a tree or empty");
+  });
+
+  test("test the tree_intersection if one if both of thim is Trees", async () => {
+    let tree1 = await new BinarySearchTree();
+    let tree2 = await new BinarySearchTree();
+    tree1.add(8);
+    tree1.add(6);
+    tree1.add(3);
+    tree1.add(7);
+    tree1.add(10);
+
+    
+    tree2.add(8);
+    tree2.add(6);
+    tree2.add(3);
+    tree2.add(1);
+    tree1.add(11);
+
+    expect(tree_intersection(tree1, tree2)).toEqual([8,6,3]);
   });
 })
+
+
+
