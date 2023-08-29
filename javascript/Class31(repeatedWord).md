@@ -13,8 +13,8 @@
 ### [ pull request ](https://github.com/Mohammad-Aljamal/data-structures-and-algorithms/pull/44)
 
 
+<!-- ### ![](./assets/repeatedWord-hashmap.png) -->
 ### ![](./assets/repeatedWord-hashmap.png)
-
 
 
 
