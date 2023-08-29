@@ -97,6 +97,21 @@ describe("contains", () => {
   });
 });
 
+describe("FizzBizz", () => {
+  test("if value of node %3=0 Fizz if value of node %5=0 Bizz if both FizzBizz", async () => {
+    let newTree = await new BinarySearchTree();
+    let result = newTree.fizzBuzz(newTree);
+    expect(result).toEqual('the tree is empty');
+
+    newTree.add(9);
+    newTree.add(8);
+    newTree.add(5);
+    newTree.add(15);
+    newTree.fizzBuzz(newTree);
+    expect(newTree.preOrder()).toEqual(['Fizz','8','Bizz','FizzBizz']);
+  });
+})
+
 describe("getMax", () => {
   test("get the max value of the tree", async () => {
     let newTree = await new BinarySearchTree();
@@ -112,6 +127,7 @@ describe("getMax", () => {
     expect(newTree.treeMax()).toEqual(11);
   });
 })
+
 
 
 
@@ -160,3 +176,6 @@ describe("tree_intersection", () => {
     expect(tree_intersection(tree1, tree2)).toEqual([8,6,3]);
   });
 })
+
+
+
