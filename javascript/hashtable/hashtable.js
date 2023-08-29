@@ -136,27 +136,31 @@ class Hashmap {
     return `the index of this ${key} is ${hash}`;
   }
 
+}
+
+
   ///////////////////////class 31///////////////////////////////
 
-  repeatedWord(string) {
-    const words = string.toLowerCase().split(/\W+/)
-    const wordMap = new Hashmap(words.length);
+function repeatedWord(string) {
+  const words = string.toLowerCase().split(/\W+/)
+  const wordMap = new Hashmap(words.length);
 
-    for (const word of words) {
-      if (word) {
-        // Ignore empty words
-        if (wordMap.has(word)) {
-          return word;
-        }
-        wordMap.set(word, true);
+  for (const word of words) {
+    if (word) {
+      // Ignore empty words
+      if (wordMap.has(word)) {
+        return word;
       }
+      wordMap.set(word, true);
     }
-
-    return "No repeated word found";
   }
-  
-  ///////////////////////////////////////////////////////////////
+
+  return "No repeated word found";
 }
+
+  ///////////////////////////////////////////////////////////////
+
+
 
 const myHash = new Hashmap(10);
 
@@ -182,7 +186,7 @@ console.log("hash==>", myHash.hash("esam"));
 
 console.log(
   "repet==>",
-  myHash.repeatedWord(
+  repeatedWord(
     "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way – in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only"
   )
 );
