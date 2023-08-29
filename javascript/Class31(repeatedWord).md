@@ -8,8 +8,8 @@
 
 ### You can see the code Test of the challenge here: [Hashtable.TEST](./hashtable/__tests__/hashtable.test.js)
 
-### [ pull request ](https://github.com/Mohammad-Aljamal/data-structures-and-algorithms/pull/41)
-### [ pull request ](https://github.com/Mohammad-Aljamal/data-structures-and-algorithms/pull/42)
+<!-- ### [ pull request ](https://github.com/Mohammad-Aljamal/data-structures-and-algorithms/pull/41) -->
+<!-- ### [ pull request ](https://github.com/Mohammad-Aljamal/data-structures-and-algorithms/pull/42) -->
 ### [ pull request ](https://github.com/Mohammad-Aljamal/data-structures-and-algorithms/pull/44)
 
 
