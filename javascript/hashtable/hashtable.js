@@ -191,4 +191,8 @@ console.log(
   )
 );
 
-module.exports = Hashmap;
+module.exports = {
+Hashmap: Hashmap,
+repeatedWord: repeatedWord,
+
+}
