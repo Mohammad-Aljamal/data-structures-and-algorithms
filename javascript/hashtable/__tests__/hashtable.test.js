@@ -1,7 +1,7 @@
 "use strict";
 
 // Require our Hashmap implementation
-const Hashmap = require("../hashtable");
+const {Hashmap, repeatedWord} = require("../hashtable");
 
 describe("Hash map", () => {
   test("create a Hashmap ", async () => {
@@ -83,8 +83,8 @@ describe("has", () => {
 describe("repeatedWord", () => {
   test(" finds the first word to occur more than once in a string", async () => {
     let myHash = await new Hashmap();
-    const result = myHash.repeatedWord("Once upon a time, there was a brave princess who");
-    const result1 = myHash.repeatedWord("It was a queer, sultry summer, the summer they electrocuted the Rosenbergs, and I didn’t know what I was doing in New York");
+    const result = repeatedWord("Once upon a time, there was a brave princess who");
+    const result1 = repeatedWord("It was a queer, sultry summer, the summer they electrocuted the Rosenbergs, and I didn’t know what I was doing in New York");
 
     expect(result).toEqual("a");
     expect(result1).toEqual("summer");
