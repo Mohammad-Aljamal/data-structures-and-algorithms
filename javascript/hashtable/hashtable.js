@@ -158,6 +158,30 @@ function repeatedWord(string) {
   return "No repeated word found";
 }
 
+  /////////////////^^^^^^class 31^^^^///////////////////////////
+
+  ///////////////////////class 33///////////////////////////////
+
+function leftJoin(synonymsMap, antonymsMap) {
+  const result = new Hashmap(synonymsMap.size);
+  synonymsMap.keys().forEach((key) => {
+      let synonymList = synonymsMap.get(key);
+      let antonymList = antonymsMap.get(key);
+      if (antonymList) {
+          if (!Array.isArray(synonymList)) {
+              synonymList = [synonymList];
+          }
+          if (!Array.isArray(antonymList)) {
+              antonymList = [antonymList];
+          }
+          const mergedList = synonymList.concat(antonymList);
+          result.set(key, mergedList);
+      } else {
+          result.set(key, synonymList);
+      }
+  });
+  return result;
+}
   ///////////////////////////////////////////////////////////////
 
 
@@ -170,6 +194,11 @@ myHash.set("ahmad", "5");
 myHash.set("esam", "1");
 myHash.set("mohamad", "2");
 myHash.set("esam", "4");
+
+const secoundHash = new Hashmap(5);
+
+secoundHash.set("mohamad", "1");
+secoundHash.set("shihab", "2");
 
 myHash.map.forEach((ll) => {
   console.log(ll.print());
@@ -190,6 +219,10 @@ console.log(
     "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way – in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only"
   )
 );
+
+const result = leftJoin(myHash, secoundHash);
+console.log(result.keys());
+console.log(result.get("mohamad"));
 
 module.exports = {
 Hashmap: Hashmap,
