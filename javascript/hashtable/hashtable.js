@@ -135,14 +135,12 @@ class Hashmap {
     const hash = this.makeHash(key);
     return `the index of this ${key} is ${hash}`;
   }
-
 }
 
-
-  ///////////////////////class 31///////////////////////////////
+///////////////////////class 31///////////////////////////////
 
 function repeatedWord(string) {
-  const words = string.toLowerCase().split(/\W+/)
+  const words = string.toLowerCase().split(/\W+/);
   const wordMap = new Hashmap(words.length);
 
   for (const word of words) {
@@ -158,9 +156,31 @@ function repeatedWord(string) {
   return "No repeated word found";
 }
 
-  ///////////////////////////////////////////////////////////////
+/////////////////^^^^^^class 31^^^^///////////////////////////
 
+///////////////////////class 33///////////////////////////////
 
+function leftJoin(synonymsMap, antonymsMap) {
+  const result = new Hashmap(synonymsMap.size);
+  synonymsMap.keys().forEach((key) => {
+    let synonymList = synonymsMap.get(key);
+    let antonymList = antonymsMap.get(key);
+    if (antonymList) {
+      if (!Array.isArray(synonymList)) {
+        synonymList = [synonymList];
+      }
+      if (!Array.isArray(antonymList)) {
+        antonymList = [antonymList];
+      }
+      const mergedList = synonymList.concat(antonymList);
+      result.set(key, mergedList);
+    } else {
+      result.set(key, synonymList);
+    }
+  });
+  return result;
+}
+///////////////////////////////////////////////////////////////
 
 const myHash = new Hashmap(10);
 
@@ -170,6 +190,11 @@ myHash.set("ahmad", "5");
 myHash.set("esam", "1");
 myHash.set("mohamad", "2");
 myHash.set("esam", "4");
+
+const secoundHash = new Hashmap(5);
+
+secoundHash.set("mohamad", "5");
+secoundHash.set("shihab", "2");
 
 myHash.map.forEach((ll) => {
   console.log(ll.print());
@@ -191,8 +216,12 @@ console.log(
   )
 );
 
-module.exports = {
-Hashmap: Hashmap,
-repeatedWord: repeatedWord,
+const result = leftJoin(myHash, secoundHash);
+console.log("joinLeft", result.keys());
+console.log(result.get("mohamad"));
 
-}
+module.exports = {
+  Hashmap: Hashmap,
+  repeatedWord: repeatedWord,
+  leftJoin: leftJoin,
+};
