@@ -25,17 +25,7 @@ class Graph {
         return this.adjacencyList.keys();
     }
     getneighbors (vertex) {
-        // const iterator1 = this.adjacencyList.keys()
-        // for(let i =0; i>0; i++ ){
-        //     const s = iterator1.next().value
-        //     if(s == undefined){
-        //         i = 0;
-        //         break;
-        //     }
-        //     console.log(s);
-
-        // }
-        // return this.adjacencyList.get(vertex)
+        return this.adjacencyList.get(vertex)
     }
     size () {
         return this.adjacencyList.size;
@@ -74,7 +64,9 @@ console.log(myGraph.getvertices());
 
 console.log(mynewGraph.getvertices());
 
-// myGraph.getneighbors(one)
+console.log(myGraph.getneighbors(zero))
+
 
 console.log(myGraph.size());
 
+module.exports = Graph;
