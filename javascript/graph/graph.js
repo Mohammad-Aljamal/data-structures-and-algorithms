@@ -29,8 +29,37 @@ class Graph {
     }
     size () {
         return this.adjacencyList.size;
-
     }
+
+    breadthFirst(startNode) {
+        if (!this.adjacencyList.has(startNode)) {
+            console.log(`Start node does not exist`);
+            return [];
+        }
+    
+        const visited = new Map(); // To track visited nodes
+        const result = []; // To store the visited nodes in order
+        const queue = [startNode];
+    
+        visited.set(startNode, true); // Mark the startNode as visited
+    
+        while (queue.length > 0) {
+            const currentNode = queue.shift(); // Dequeue the first node in the queue
+            result.push(currentNode);
+    
+            const neighbors = this.adjacencyList.get(currentNode);
+    
+            for (const neighborEdge of neighbors) {
+                const neighbor = neighborEdge.vertex;
+                if (!visited.has(neighbor)) {
+                    queue.push(neighbor);
+                    visited.set(neighbor, true);
+                }
+            }
+        }
+            return result;
+    }
+    
 }
 
 const zero = new Vertex(0);
@@ -60,13 +89,12 @@ myGraph.addDirectedEdge(five, four);
 const mynewGraph = new Graph();
 
 
-console.log(myGraph.getvertices());
+console.log("getvertices-->",mynewGraph.getvertices());
 
-console.log(mynewGraph.getvertices());
+console.log("getneighbors-->",myGraph.getneighbors(zero))
 
-console.log(myGraph.getneighbors(zero))
+console.log("size-->",myGraph.size());
 
-
-console.log(myGraph.size());
+console.log("breadthFirst-->", myGraph.breadthFirst(zero));
 
 module.exports = Graph;
