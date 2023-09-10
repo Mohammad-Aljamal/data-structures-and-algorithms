@@ -1,6 +1,6 @@
-# Class 35
+# Class 36
 
-## Graph:
+## Graph breadthFirst:
 
 
 ### You can see the code of the challenge here: [Graph](./graph/graph.js)
