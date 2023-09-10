@@ -42,7 +42,27 @@ describe("graph", () => {
     newGraph.addVertex(one);
 
     newGraph.addDirectedEdge(zero, one);
-    let result = newGraph.getvertices();
     expect(newGraph.size()).toEqual(2);
+  });
+
+  test("breadthFirst", async () => {
+    const zero = new Vertex(0);
+    const one = new Vertex(1);
+    const two = new Vertex(2);
+    const three = new Vertex(3);
+
+    let newGraph = await new Graph();
+    newGraph.addVertex(zero);
+    newGraph.addVertex(one);
+    newGraph.addVertex(two);
+    newGraph.addVertex(three);
+
+    newGraph.addDirectedEdge(zero, one);
+    newGraph.addDirectedEdge(one, two);
+    newGraph.addDirectedEdge(one, three);
+    newGraph.addDirectedEdge(two, three);
+
+    let result = newGraph.breadthFirst(zero);
+    expect(result).toEqual([{"value": 0}, {"value": 1}, {"value": 2}, {"value": 3}]);
   });
 });
