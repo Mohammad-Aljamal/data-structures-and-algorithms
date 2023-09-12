@@ -1,7 +1,9 @@
 "use strict";
 const Edge = require("../edge");
 const Vertex = require("../vertex");
-const Graph = require("../graph");
+const {Graph} = require("../graph");
+const {businessTrip} = require("../graph");
+
 
 describe("graph", () => {
   test("create a graph and get the vertex", async () => {
@@ -66,3 +68,41 @@ describe("graph", () => {
     expect(result).toEqual([{"value": 0}, {"value": 1}, {"value": 2}, {"value": 3}]);
   });
 });
+
+
+
+describe("graph-business-trip", () => {
+  test("if there is no citys ", async () => {
+    const cityGraph = new Graph();
+    expect(businessTrip(cityGraph, [])).toEqual("The cost of the trip is 0$");
+
+  })
+  
+  test("if there is no direct trip between two citys", async () => {
+    const cityGraph = new Graph();
+
+    cityGraph.addVertex("A");
+    cityGraph.addVertex("B");
+    cityGraph.addVertex("C");
+    cityGraph.addDirectedEdge("A", "B", 100);
+    cityGraph.addDirectedEdge("B", "C", 200); 
+    
+    expect(businessTrip(cityGraph, ['A','C'])).toEqual('The trip is not possible.');
+  });
+
+  test("if there is direct trips between all citys", async () => {
+    const cityGraph = new Graph();
+
+    cityGraph.addVertex("A");
+    cityGraph.addVertex("B");
+    cityGraph.addVertex("C");
+    cityGraph.addVertex("D");
+    cityGraph.addDirectedEdge("A", "B", 100);
+    cityGraph.addDirectedEdge("B", "C", 150); 
+    cityGraph.addDirectedEdge("C", "D", 300); 
+    cityGraph.addDirectedEdge("D", "A", 50); 
+
+    expect(businessTrip(cityGraph, ['A', 'B','C', 'D', 'A'])).toEqual("The cost of the trip is 600$");
+  });
+
+})
