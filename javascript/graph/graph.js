@@ -156,6 +156,8 @@ console.log("breadthFirst-->", myGraph.breadthFirst(zero));
 console.log("----------------------------------------------------------------");
 console.log("----------------------------------------------------------------");
 
+const kk = new Graph();
+
 const cityGraph = new Graph();
 
 cityGraph.addVertex("A");
@@ -182,7 +184,7 @@ const tripCities4 = [];
 console.log(businessTrip(cityGraph, tripCities4));
 
 console.log("----------------------------------------------------------------");
-console.log("----------------------------------------------------------------");
+console.log("-------------------depth-first---------------------------------------------");
 
 
 console.log(myGraph.depthFirst(zero));
