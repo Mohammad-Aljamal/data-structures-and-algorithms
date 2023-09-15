@@ -58,6 +58,34 @@ class Graph {
     }
     return result;
   }
+
+  ////////////////////////////39 graph-depth-first
+  depthFirst(startNode) {
+    if (!this.adjacencyList.has(startNode)) {
+      return `Start node does not exist`;
+    }
+
+    const visited = new Map();
+    const result = [];
+
+    const dfs = (node) => {
+      visited.set(node, true);
+      result.push(node);
+
+      const neighbors = this.adjacencyList.get(node);
+      
+      for (const neighborEdge of neighbors) {
+        const neighbor = neighborEdge.vertex;
+        if (!visited.has(neighbor)) {
+          dfs(neighbor);
+        }
+      }
+    };
+
+    dfs(startNode);
+    return result;
+}
+
 }
 
 //////////////////////////////////////37 graph-business-trip////////////////////////////////////
@@ -153,6 +181,11 @@ console.log(businessTrip(cityGraph, tripCities3));
 const tripCities4 = [];
 console.log(businessTrip(cityGraph, tripCities4));
 
+console.log("----------------------------------------------------------------");
+console.log("----------------------------------------------------------------");
+
+
+console.log(myGraph.depthFirst(zero));
 
 
 module.exports = {
